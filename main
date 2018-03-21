@@ -32,8 +32,8 @@ class MainHandler(BaseHandler):
         return self.render_template("form.html")
 
     def post(self):
-        number_1 = self.request.get("number1")
-        number_2 = self.request.get("number2")
+        number_1 = (int(self.request.get("number1"))
+        number_2 = (int(self.request.get("number2"))
         operation = self.request.get("operation")
 
         if operation == "+":
