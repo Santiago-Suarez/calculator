@@ -3,8 +3,6 @@ import os
 import jinja2
 import webapp2
 
-from __future__ import division
-
 template_dir = os.path.join(os.path.dirname(__file__), "templates") #crea directorio para incluir templates
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape=False)#inicializa Jinja
 
@@ -32,8 +30,8 @@ class MainHandler(BaseHandler):
         return self.render_template("form.html")
 
     def post(self):
-        number_1 = (int(self.request.get("number1"))
-        number_2 = (int(self.request.get("number2"))
+        number_1 = (int(self.request.get("number1")))
+        number_2 = (int(self.request.get("number2")))
         operation = self.request.get("operation")
 
         if operation == "+":
@@ -54,5 +52,4 @@ class MainHandler(BaseHandler):
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
-    webapp2.Route('/outcome', OutcomeHandler),
 ], debug=True)
